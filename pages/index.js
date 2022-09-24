@@ -3,8 +3,15 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useState } from "react";
 
 export default function Home({ articles }) {
+  const [numberArticles, setNumberArticles] = useState(6);
+
+  const verMas = () => setNumberArticles(numberArticles + 6);
+
+  const articulo = articles.slice(0, numberArticles);
+
   return (
     <section className="flex flex-col self-center content-center items-center text-center ">
       <div>
@@ -12,7 +19,7 @@ export default function Home({ articles }) {
       </div>
       {articles.length == 0 && <p>Loading ... </p>}
       {articles.length > 0 &&
-        articles.map((article, index) => (
+        articulo.map((article, index) => (
           <div
             key={index}
             className="w-72 md:w-96 mt-10 mb-10 text-center border-2  border-gray-400 shadow-slate-200  rounded-lg color bg-slate-200 text-slate-700 "
@@ -33,6 +40,12 @@ export default function Home({ articles }) {
             </div>
           </div>
         ))}
+      <div
+        className="cursor-pointer font-bold text-gray-800 text-xl"
+        onClick={verMas}
+      >
+        ver más
+      </div>
     </section>
   );
 }
