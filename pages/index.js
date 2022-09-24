@@ -5,27 +5,32 @@ import styles from "../styles/Home.module.css";
 export default function Home({ articles }) {
   return (
     <section className="flex flex-col self-center content-center items-center text-center ">
-       <div>
-        <div >Soccer</div>
-
+      <div>
+        <div>Soccer</div>
       </div>
       {articles.length == 0 && <p>Loading ... </p>}
       {articles.length > 0 &&
         articles.map((article, index) => (
           <div
             key={index}
-            className="w-96 mt-10 mb-10 text-center border-gray-900 border-2 "
+            className="w-72 md:w-96 mt-10 mb-10 text-center border-2  border-gray-400 shadow-slate-200  rounded-lg color bg-slate-200 text-slate-700 "
           >
             <img alt="image" src={article.urlToImage}></img>
-            <div>
-              <p className="text-3xl font-bold underline">{article.title}</p>
-            </div>
-            <div>
-              <p>{article.description}</p>
+            <div className="p-8">
+              <div>
+                <p className="text-3xl font-bold">{article.title}</p>
+              </div>
+              <div className="text-gray-600 mt-5">
+                <p>{article.description}</p>
+              </div>
+              <div className="mt-6 text-right">
+                <a className="font-bold" href={article.url}>
+                  Read More
+                </a>
+              </div>
             </div>
           </div>
         ))}
-     
     </section>
   );
 }
