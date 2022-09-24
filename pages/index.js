@@ -1,6 +1,8 @@
+import { faSoccerBall } from "@fortawesome/free-regular-svg-icons";
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Home({ articles }) {
   return (
@@ -16,16 +18,16 @@ export default function Home({ articles }) {
             className="w-72 md:w-96 mt-10 mb-10 text-center border-2  border-gray-400 shadow-slate-200  rounded-lg color bg-slate-200 text-slate-700 "
           >
             <img alt="image" src={article.urlToImage}></img>
-            <div className="p-8">
+            <div className="p-4 md:p-8">
               <div>
-                <p className="text-3xl font-bold">{article.title}</p>
+                <p className="text-lg md:text-3xl font-bold">{article.title}</p>
               </div>
               <div className="text-gray-600 mt-5">
                 <p>{article.description}</p>
               </div>
               <div className="mt-6 text-right">
                 <a className="font-bold" href={article.url}>
-                  Read More
+                  Read More <FontAwesomeIcon icon={faSoccerBall} />
                 </a>
               </div>
             </div>
