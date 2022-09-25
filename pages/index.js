@@ -8,7 +8,6 @@ import { faNewspaper, faSoccerBall } from "@fortawesome/free-regular-svg-icons";
 import Footer from "../components/Footer";
 
 export default function Home({ articles }) {
-  
   const [numberArticles, setNumberArticles] = useState(6);
 
   const verMas = () => setNumberArticles(numberArticles + 6);
@@ -50,19 +49,17 @@ export default function Home({ articles }) {
           </div>
         ))}
       <div
-        className="cursor-pointer font-bold text-gray-700 text-xl mb-7 hover:text-blue-700"
+        className="cursor-pointer font-bold text-gray-700 text-xl  hover:text-blue-700"
         onClick={verMas}
       >
         ver más
       </div>
-     <Footer></Footer>
+      <Footer></Footer>
     </section>
   );
 }
 
 export async function getServerSideProps() {
- 
-
   const day = Date.now;
 
   const response = await fetch(
