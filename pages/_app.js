@@ -7,6 +7,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
+        </Head>
         <Script
           id="Adsense-id"
           data-ad-client="ca-pub-4689214255850199"
@@ -17,7 +18,6 @@ function MyApp({ Component, pageProps }) {
           }}
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
         />
-      </Head>
       <ThemeProvider attribute="class" enableSystem={false}>
         <Component {...pageProps} />
       </ThemeProvider>{" "}
