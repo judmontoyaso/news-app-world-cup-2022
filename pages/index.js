@@ -3,10 +3,12 @@ import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
-import { } from "@fortawesome/free-solid-svg-icons";
-import { faNewspaper,faSoccerBall} from "@fortawesome/free-regular-svg-icons";
+import {} from "@fortawesome/free-solid-svg-icons";
+import { faNewspaper, faSoccerBall } from "@fortawesome/free-regular-svg-icons";
+import Footer from "../components/Footer";
 
 export default function Home({ articles }) {
+  
   const [numberArticles, setNumberArticles] = useState(6);
 
   const verMas = () => setNumberArticles(numberArticles + 6);
@@ -17,7 +19,8 @@ export default function Home({ articles }) {
     <section className="flex flex-col self-center content-center items-center text-center ">
       <div>
         <div className="mt-10 mb-10 text-2xl md:text-4xl font-bold text-gray-700">
-          Soccer News <FontAwesomeIcon icon={faSoccerBall} /> <FontAwesomeIcon icon={faNewspaper} />
+          Soccer News <FontAwesomeIcon icon={faSoccerBall} />{" "}
+          <FontAwesomeIcon icon={faNewspaper} />
         </div>
       </div>
       {articles.length == 0 && <p>Loading ... </p>}
@@ -28,7 +31,7 @@ export default function Home({ articles }) {
             className="w-72 md:w-96 mt-10 mb-10 text-center border-2  border-gray-400 shadow-slate-200  rounded-lg color bg-slate-200 text-slate-700 "
           >
             <img
-              alt={`Image for the article ${article}`}
+              alt={`Image for the article ${article.title}`}
               src={article.urlToImage}
             ></img>
             <div className="p-4 md:p-8">
@@ -52,13 +55,18 @@ export default function Home({ articles }) {
       >
         ver más
       </div>
+     <Footer></Footer>
     </section>
   );
 }
 
 export async function getServerSideProps() {
+ 
+
+  const day = Date.now;
+
   const response = await fetch(
-    "https://newsapi.org/v2/everything?q=soccer-world-cup-&from=2022-08-24&sortBy=publishedAt&apiKey=1ff602cc716b4e8aa6c2ac3812e0bb93"
+    `https://newsapi.org/v2/everything?q=soccer-world-cup-&from=2022-08-${day}&sortBy=publishedAt&apiKey=1ff602cc716b4e8aa6c2ac3812e0bb93`
   );
   const { articles } = await response.json();
   return {
