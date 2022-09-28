@@ -15,7 +15,7 @@ const ThemeSwitch = () => {
       aria-label="Toggle Dark Mode"
       type="button"
       className="   
-        focus:outline outline-none"
+        focus:outline outline-none ml-4"
       onClick={() =>
         setTheme(
           theme === "dark" || resolvedTheme === "dark" ? "light" : "dark"

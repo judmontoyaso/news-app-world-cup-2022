@@ -19,9 +19,9 @@ export default function Home({ articles }) {
 
   return (
     <section className=" self-start content-start items-center text-start dark:bg-gray-900 ">
-      <div className="fixed top-6 left-6">
+      {/* <div className="fixed top-6 left-6">
         <ThemeSwitch />
-      </div>
+      </div> */}
       <div className="flex flex-col self-center content-center items-center text-center  dark:bg-zinc-900 bg-zinc-100">
         <div className="mt-10 mb-10 text-2xl md:text-4xl font-bold text-gray-700 dark:text-gray-100 ">
           Soccer News <FontAwesomeIcon icon={faSoccerBall} />{" "}

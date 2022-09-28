@@ -4,8 +4,9 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import {
+  faBars,
+  faClose,
   faHamburger,
-
   faNewspaper,
 } from "@fortawesome/free-solid-svg-icons";
 import { faHotdog } from "@fortawesome/free-solid-svg-icons";
@@ -20,22 +21,21 @@ const Navigation = () => {
   const handleClick = () => {
     setActive(!active);
   };
- 
+
   return (
     <nav className="sticky top-0 z-20 py-2 bg-gray-200 md:py-4  dark:bg-black  transition-all duration-1000">
-      <ThemeSwitch />
-
       <button
-        className="float-right pr-3 pl-3 pt-1 dark:hover:text-gray-400 hover:text-gray-600 rounded-sm lg:hidden text-black ml-auto outline-none justify-end dark:text-white  hover:text-xl"
+        className="float-left pr-3 pl-3 pt-1 dark:hover:text-gray-400 hover:text-gray-600 rounded-sm lg:hidden text-black ml-auto outline-none justify-end dark:text-white  hover:text-xl"
         onClick={handleClick}
       >
         {!active ? (
-          <FontAwesomeIcon icon={faHamburger} size="lg" />
+          <FontAwesomeIcon icon={faBars} size="lg" />
         ) : (
-          <FontAwesomeIcon icon={faHotdog} size="lg" />
+          <FontAwesomeIcon icon={faClose} size="lg" />
         )}
       </button>
 
+      <ThemeSwitch></ThemeSwitch>
       <div
         className={`${
           active ? "" : "hidden"
