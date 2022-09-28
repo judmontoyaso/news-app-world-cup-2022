@@ -68,7 +68,9 @@ export default function Home({ articles }) {
 }
 
 export async function getServerSideProps() {
-  const day = 25;
+ 
+  let date = new Date();
+  let day = String(date.getDate());
 
   const response = await fetch(
     `https://newsapi.org/v2/everything?q=soccer-world-cup-&from=2022-08-${day}&sortBy=publishedAt&apiKey=1ff602cc716b4e8aa6c2ac3812e0bb93`
