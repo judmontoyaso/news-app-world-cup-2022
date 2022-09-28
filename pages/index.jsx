@@ -8,6 +8,7 @@ import { faNewspaper, faSoccerBall } from "@fortawesome/free-regular-svg-icons";
 import Footer from "../components/Footer";
 import ThemeSwitch from "../components/ThemeSwitch";
 import { useTheme } from "next-themes";
+import Navigation from "../components/Navigation";
 
 export default function Home({ articles }) {
   const [numberArticles, setNumberArticles] = useState(6);
@@ -55,20 +56,19 @@ export default function Home({ articles }) {
               </div>
             </div>
           ))}
+        <div
+          className="cursor-pointer font-bold text-gray-700 text-xl  hover:text-blue-700"
+          onClick={verMas}
+        >
+          ver más
+        </div>
+        <Footer></Footer>
       </div>
-      <div
-        className="cursor-pointer font-bold text-gray-700 text-xl  hover:text-blue-700"
-        onClick={verMas}
-      >
-        ver más
-      </div>
-      <Footer></Footer>
     </section>
   );
 }
 
 export async function getServerSideProps() {
- 
   let date = new Date();
   let day = String(date.getDate());
 
